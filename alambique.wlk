@@ -1,3 +1,4 @@
+
 object luke{
     var cantidadViajes = 0
     var recuerdo = null
@@ -15,7 +16,6 @@ object luke{
     method recuerdo() = recuerdo
     method vehiculo(nuevo) {vehiculo = nuevo}
 }
-
 object alambiqueVeloz {
     var rapido = true
     var combustible = 20
@@ -76,7 +76,6 @@ object chatarra {
     }
     method patenteValida() = municiones.take(4) == "ACME" 
     method cañones() = cañones
-
 }
 
 object convertible{
