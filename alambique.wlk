@@ -1,4 +1,3 @@
-
 object luke{
     var cantidadViajes = 0
     var recuerdo = null
@@ -104,4 +103,11 @@ object moto{
     method puedeFuncionar() = not moto.rapido()
     method desgaste() { }
     method patenteValida() = false
+}
+object autosLocos{
+    const participarCarrera = []
+    // lista vacia
+    const rechazados = []
+    // los autos rechazados
+    
 }
