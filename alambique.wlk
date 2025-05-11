@@ -1,3 +1,4 @@
+
 object luke{
     var cantidadViajes = 0
     var recuerdo = null
@@ -105,9 +106,49 @@ object moto{
     method patenteValida() = false
 }
 object autosLocos{
-    const participarCarrera = []
-    // lista vacia
+    var ciudad = paris
+    const inscripcion = []
+    const autosAcept = []
+    // si no son rechazados son aceptados
     const rechazados = []
-    // los autos rechazados
-    
+    method inscripto(unAuto){
+        inscripcion.add(unAuto)
+        // los inscribe pero todavia no son aceptados
+    }
+    method ciudad() = ciudad
+    // si quiero saber la ciudad
+    method ciudadAct(unaCiudad) {ciudad = unaCiudad}
+    // si la quiero cambiar la ubicacion
+    method verificaVehiculo(unVehiculo){
+        if(ciudad.puedeLlegar(unVehiculo)){
+            autosAcept.add(unVehiculo)
+        }
+        else{
+            rechazados.add(unVehiculo)
+            // si no son aceptados entonces
+            // los mandamos a la lista de rechazados
+        }
+    }
+    method replanificar(nuevaCiudad,vehiculo){
+        // cambiar la ciudad
+        self.ciudadAct(nuevaCiudad)
+        // cambio la ciudad
+        inscripcion.forEach({p=> p.verificaVehiculo(vehiculo)})
+        // recorro la lista de inscriptos y vuelvo a modificar
+    }
+    // necesito un metodo para recorrer los vehiculos aceptados
+    method vehiculosAceptados() = autosAcept
+}
+object carrera{
+    method viajarHastaCiudad(){
+        return autosLocos.vehiculosAceptados().forEach({p=>p.desgaste()})
+        // hacemos que se desgaste 
+        // no hay funcion clara para hacer esto
+    }
+    method obtenerGanador(){
+        return autosLocos.vehiculosAceptados().anyOne()
+        // devuelve cualquier objeto porque no sabemos
+        // cual de ellos fueron los que terminaron en menos tiempo
+        // entonces que devuelva cualquiera
+    }
 }
