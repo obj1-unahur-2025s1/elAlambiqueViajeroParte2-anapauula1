@@ -152,3 +152,8 @@ object carrera{
         // entonces que devuelva cualquiera
     }
 }
+object auto2{
+    method auto(){
+        
+    }
+}
